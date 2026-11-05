@@ -1,14 +1,17 @@
+
+name: CI
+
+
 name: CI
 
 on: [push, pull_request]
 
-env:
-  APP_NAME: fastapi-starter
-
 jobs:
+  # JOB 1 : Vérifier la qualité du code
   lint:
     name: Lint - Ruff
     runs-on: ubuntu-latest
+
     steps:
       - name: Récupérer le code
         uses: actions/checkout@v4
@@ -23,8 +26,10 @@ jobs:
 
       - name: Vérifier le style
         run: ruff check .
-      
+
       - name: Afficher les contextes GitHub
+        env:
+          APP_NAME: fastapi-starter
         run: |
           echo "Application: $APP_NAME"
           echo "Acteur: ${{ github.actor }}"
@@ -36,10 +41,11 @@ jobs:
           echo "Base ref: ${{ github.base_ref }}"
           echo '${{ toJson(github) }}'
 
-
+  # JOB 2 : Vérifier l'application
   build:
     name: Build - Vérifier l'application
     runs-on: ubuntu-latest
+
     steps:
       - name: Récupérer le code
         uses: actions/checkout@v4
@@ -58,9 +64,12 @@ jobs:
       - name: Importer l'application
         run: python -c "from app.main import app; print(app.title)"
 
+  # JOB 3 : Exécuter les tests
   test:
     name: Test - Pytest
+    needs: [lint, build]
     runs-on: ubuntu-latest
+
     steps:
       - name: Récupérer le code
         uses: actions/checkout@v4
