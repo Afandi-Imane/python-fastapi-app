@@ -1,0 +1,13 @@
+name: Docker Hello
+description: Simple Docker action
+
+inputs:
+  who:
+    description: Name to greet
+    required: true
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.who }}
