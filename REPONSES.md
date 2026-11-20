@@ -5,3 +5,14 @@ dans les steps suivantes, pas dans celle qui les définit.
 
 **Q2 :** APP_NAME est vide dans verify-env, car GITHUB_ENV
 a une portée limitée au job dans lequel il est utilisé.
+
+**Q3 :** Le symbole > écrase le contenu précédent,
+tandis que >> ajoute une nouvelle ligne.
+
+**Q4 :** GITHUB_ENV fonctionne uniquement dans un job.
+GITHUB_OUTPUT permet de transmettre des valeurs entre
+jobs grâce à outputs et needs.
+
+**Q5 :** Sans needs: build, deploy peut s'exécuter
+avant build et ne peut pas récupérer correctement
+son output.
