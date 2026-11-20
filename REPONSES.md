@@ -16,3 +16,10 @@ jobs grâce à outputs et needs.
 **Q5 :** Sans needs: build, deploy peut s'exécuter
 avant build et ne peut pas récupérer correctement
 son output.
+
+**Q6 :** checkout doit s'exécuter avant l'action locale
+pour récupérer ses fichiers depuis le dépôt.
+
+**Q7 :** shell: bash est obligatoire pour préciser
+l'interpréteur utilisé par les commandes run
+dans une action composite.
