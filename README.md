@@ -54,3 +54,11 @@ GitHub Actions workflow runs linting and tests with coverage on Python 3.13. See
 ## License
 
 MIT. See [LICENSE](./LICENSE).
+
+# TP 7 — Réponses
+
+**Q1 :** checkout utilise des paramètres par défaut.
+setup-node utilise with pour préciser la version de Node.js.
+
+**Q2 :** Chaque job possède son propre environnement.
+Les artefacts permettent de partager des fichiers entre jobs.
