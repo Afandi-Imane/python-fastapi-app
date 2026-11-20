@@ -23,3 +23,17 @@ pour récupérer ses fichiers depuis le dépôt.
 **Q7 :** shell: bash est obligatoire pour préciser
 l'interpréteur utilisé par les commandes run
 dans une action composite.
+
+# TP 7 — Réponses
+
+**Q1 :** checkout utilise des paramètres par défaut.
+setup-node utilise with pour préciser la version de Node.js.
+
+**Q2 :** Chaque job possède son propre environnement.
+Les artefacts permettent de partager des fichiers entre jobs.
+
+**Q6 :** checkout doit s'exécuter avant l'action locale
+pour récupérer ses fichiers depuis le dépôt.
+
+**Q7 :** shell: bash précise l'interpréteur utilisé
+par les commandes run dans une action composite.
